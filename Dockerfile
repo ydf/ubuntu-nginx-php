@@ -34,7 +34,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
 
-RUN composer global require xjchen/alauda:*@dev -vvv
+#RUN composer global require xjchen/alauda:*@dev -vvv
 ENV PATH /root/.composer/vendor/bin:$PATH
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
