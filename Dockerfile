@@ -43,7 +43,7 @@ RUN chmod +x /entrypoint.sh
 WORKDIR /var/www
 EXPOSE 80 22
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["nginx""]
+CMD ["nginx"]
 CMD ["php-fpm"]
 CMD ["/usr/sbin/sshd -D"]
 
