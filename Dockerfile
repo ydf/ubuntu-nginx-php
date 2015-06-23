@@ -11,7 +11,7 @@ ENV NGINX_VERSION 1.9.0-1~jessie
 RUN apt-get update && \
     apt-get install -y ca-certificates \
         curl \
-        nginx=${NGINX_VERSION} \
+        nginx \
         openssh-server \
         unzip \
         vim && \
