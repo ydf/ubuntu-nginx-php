@@ -13,6 +13,7 @@ RUN apt-get update && \
         curl \
         nginx \
         openssh-server \
+		supervisor \
         unzip \
         vim && \
     rm -rf /var/lib/apt/lists/*
@@ -36,14 +37,11 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 RUN composer global require xjchen/alauda:*@dev -vvv
 ENV PATH /root/.composer/vendor/bin:$PATH
 
-COPY config /root/server_config
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 WORKDIR /var/www
 EXPOSE 80 22
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["nginx"]
-CMD ["php-fpm"]
-CMD ["/usr/sbin/sshd -D"]
-
+CMD ["supervisord"]
