@@ -10,7 +10,7 @@ ENV ROOT_PASSWORD test001
 
 # install utils
 RUN apt-get update && \
-    apt-get install -y ca-certificates  nginx=${NGINX_VERSION}  openssh-server
+    apt-get install -y ca-certificates openssh-server nginx=${NGINX_VERSION}
 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
