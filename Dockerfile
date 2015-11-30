@@ -6,6 +6,7 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
 
 ENV NGINX_VERSION 1.9.6-1~jessie
+ENV ROOT_PASSWORD test001
 
 # install utils
 RUN apt-get update && \
