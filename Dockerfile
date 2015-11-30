@@ -1,17 +1,10 @@
-FROM php:5.6-fpm
-MAINTAINER xjchengo
-
-COPY sources.list /etc/apt/sources.list
-
-ENV NGINX_VERSION 1.9.0-1~jessie
+MAINTAINER xjchengo-ydf
 
 # install utils
 RUN apt-get update && \
-    apt-get install -y ca-certificates \
-        curl \
-        openssh-server && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y nginx  openssh-server &&
 
+COPY docker-entrypoint.sh /entrypoint.sh
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
