@@ -9,4 +9,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 80 22
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/entrypoint.sh"]
