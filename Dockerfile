@@ -5,7 +5,7 @@ MAINTAINER ydf
 RUN apt-get update && \
     apt-get install -y ca-certificates openssh-server nginx
 
-COPY docker-entrypoint.sh /entrypoint.sh
+ADD docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 80 22
